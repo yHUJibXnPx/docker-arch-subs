@@ -1,0 +1,26 @@
+# GitHub Releases 下载链接
+//github\.com/.+/releases/download
+
+# 本地链接 (支持 http/https)
+//127\.0\.0\.1:\d+/
+
+# 通知服务
+//notify\..+?/
+
+# Apprise 服务
+//github\.com/.+/apprise
+
+# Slink 重定向链接
+//slink\.ltd/.+?
+
+# 示例域名 (支持所有路径) 和 example.worker.dev
+//(?:example\.com|example\.worker\.dev)(?:/|$)
+
+# 拦截不存在的 darknessm427/IranConfigCollector 部分
+darknessm427/IranConfigCollector
+
+# 环境变量相关
+HTTP_PROXY|HTTPS_PROXY
+
+# 排除带有花括号的模板（例如 {Ymd} 或 {Y}-{m}-{d}）的链接
+\{[^}]+\}

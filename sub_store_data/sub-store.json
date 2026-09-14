@@ -1,0 +1,271 @@
+{
+  "subs": [
+    {
+      "name": "cloud.colocrossing.com.txt",
+      "displayName": "cloud.colocrossing.com.txt",
+      "form": "",
+      "remark": "cloud.colocrossing.com.txt",
+      "mergeSources": "",
+      "ignoreFailedRemoteSub": false,
+      "passThroughUA": false,
+      "icon": "",
+      "isIconColor": true,
+      "process": [
+        {
+          "type": "Quick Setting Operator",
+          "args": {
+            "useless": "DISABLED",
+            "udp": "DEFAULT",
+            "scert": "DEFAULT",
+            "tfo": "DEFAULT",
+            "vmess aead": "DEFAULT",
+            "reuse": "DEFAULT",
+            "block-quic": "DEFAULT",
+            "ecn": "DEFAULT",
+            "ip-version": "DEFAULT"
+          }
+        }
+      ],
+      "source": "remote",
+      "url": "http://192.168.255.252:8001/cloud.colocrossing.com.txt",
+      "content": "",
+      "ua": "",
+      "tag": [
+        "cloud.colocrossing.com.txt"
+      ],
+      "subscriptionTags": [],
+      "display-name": "cloud.colocrossing.com.txt"
+    },
+    {
+      "name": "ctrl.lunes.host.txt",
+      "displayName": "ctrl.lunes.host.txt",
+      "form": "",
+      "remark": "ctrl.lunes.host.txt",
+      "mergeSources": "",
+      "ignoreFailedRemoteSub": false,
+      "passThroughUA": false,
+      "icon": "",
+      "isIconColor": true,
+      "process": [
+        {
+          "type": "Quick Setting Operator",
+          "args": {
+            "useless": "DISABLED",
+            "udp": "DEFAULT",
+            "scert": "DEFAULT",
+            "tfo": "DEFAULT",
+            "vmess aead": "DEFAULT",
+            "reuse": "DEFAULT",
+            "block-quic": "DEFAULT",
+            "ecn": "DEFAULT",
+            "ip-version": "DEFAULT"
+          }
+        }
+      ],
+      "source": "remote",
+      "url": "http://192.168.255.252:8001/ctrl.lunes.host.txt",
+      "content": "",
+      "ua": "",
+      "tag": [
+        "ctrl.lunes.host.txt"
+      ],
+      "subscriptionTags": [],
+      "display-name": "ctrl.lunes.host.txt"
+    },
+    {
+      "name": "469138946ba5fa.cc.cd.txt",
+      "displayName": "469138946ba5fa.cc.cd.txt",
+      "form": "",
+      "remark": "469138946ba5fa.cc.cd.txt",
+      "mergeSources": "",
+      "ignoreFailedRemoteSub": false,
+      "passThroughUA": false,
+      "icon": "",
+      "isIconColor": true,
+      "process": [
+        {
+          "type": "Quick Setting Operator",
+          "args": {
+            "useless": "DISABLED",
+            "udp": "DEFAULT",
+            "scert": "DEFAULT",
+            "tfo": "DEFAULT",
+            "vmess aead": "DEFAULT",
+            "reuse": "DEFAULT",
+            "block-quic": "DEFAULT",
+            "ecn": "DEFAULT",
+            "ip-version": "DEFAULT"
+          }
+        }
+      ],
+      "source": "remote",
+      "url": "http://192.168.255.252:8001/469138946ba5fa.cc.cd.txt",
+      "content": "",
+      "ua": "",
+      "tag": [
+        "469138946ba5fa.cc.cd.txt"
+      ],
+      "subscriptionTags": [],
+      "display-name": "469138946ba5fa.cc.cd.txt"
+    },
+    {
+      "name": "base64.txt",
+      "displayName": "base64.txt",
+      "form": "",
+      "remark": "",
+      "mergeSources": "",
+      "ignoreFailedRemoteSub": false,
+      "passThroughUA": false,
+      "icon": "",
+      "isIconColor": true,
+      "process": [
+        {
+          "type": "Quick Setting Operator",
+          "args": {
+            "useless": "DISABLED",
+            "udp": "DEFAULT",
+            "scert": "DEFAULT",
+            "tfo": "DEFAULT",
+            "vmess aead": "DEFAULT",
+            "reuse": "DEFAULT",
+            "block-quic": "DEFAULT",
+            "ecn": "DEFAULT",
+            "ip-version": "DEFAULT"
+          }
+        }
+      ],
+      "source": "remote",
+      "url": "http://192.168.255.252:8199/base64.txt",
+      "content": "",
+      "ua": "",
+      "tag": [
+        "base64.txt"
+      ],
+      "subscriptionTags": [],
+      "display-name": "base64.txt"
+    },
+    {
+      "name": "laziji",
+      "displayName": "laziji",
+      "form": "",
+      "remark": "laziji",
+      "mergeSources": "",
+      "ignoreFailedRemoteSub": false,
+      "passThroughUA": false,
+      "icon": "",
+      "isIconColor": true,
+      "process": [
+        {
+          "type": "Quick Setting Operator",
+          "args": {
+            "useless": "DISABLED",
+            "udp": "DEFAULT",
+            "scert": "DEFAULT",
+            "tfo": "DEFAULT",
+            "vmess aead": "DEFAULT",
+            "reuse": "DEFAULT",
+            "block-quic": "DEFAULT",
+            "ecn": "DEFAULT",
+            "ip-version": "DEFAULT"
+          }
+        }
+      ],
+      "source": "remote",
+      "url": "https://gy.lzjjjjjjj.pp.ua/sub?token=laziji",
+      "content": "",
+      "ua": "",
+      "tag": [
+        "laziji"
+      ],
+      "subscriptionTags": [],
+      "display-name": "laziji"
+    }
+  ],
+  "collections": [
+    {
+      "name": "subs",
+      "displayName": "subs",
+      "form": "",
+      "remark": "subs",
+      "mergeSources": "",
+      "ignoreFailedRemoteSub": false,
+      "passThroughUA": false,
+      "icon": "",
+      "isIconColor": true,
+      "process": [
+        {
+          "type": "Quick Setting Operator",
+          "args": {
+            "useless": "DISABLED",
+            "udp": "DEFAULT",
+            "scert": "DEFAULT",
+            "tfo": "DEFAULT",
+            "vmess aead": "DEFAULT",
+            "reuse": "DEFAULT",
+            "block-quic": "DEFAULT",
+            "ecn": "DEFAULT",
+            "ip-version": "DEFAULT"
+          }
+        },
+        {
+          "type": "Handle Duplicate Operator",
+          "args": {
+            "action": "rename",
+            "position": "back",
+            "template": "0 1 2 3 4 5 6 7 8 9",
+            "link": "-",
+            "field": [
+              "name"
+            ]
+          },
+          "customName": "",
+          "id": "37683520.67438531",
+          "disabled": false
+        }
+      ],
+      "subscriptions": [
+        "cloud.colocrossing.com.txt",
+        "ctrl.lunes.host.txt",
+        "469138946ba5fa.cc.cd.txt",
+        "base64.txt",
+        "laziji"
+      ],
+      "firstSubFlow": true,
+      "tag": [
+        "cloud.colocrossing.com.txt",
+        "ctrl.lunes.host.txt",
+        "469138946ba5fa.cc.cd.txt",
+        "base64.txt",
+        "laziji"
+      ],
+      "subscriptionTags": [
+        "cloud.colocrossing.com.txt",
+        "ctrl.lunes.host.txt",
+        "469138946ba5fa.cc.cd.txt",
+        "base64.txt",
+        "laziji"
+      ],
+      "subUserinfo": "",
+      "display-name": "subs",
+      "iconFit": null
+    }
+  ],
+  "artifacts": [],
+  "rules": [],
+  "files": [],
+  "tokens": [],
+  "schemaVersion": "2.0",
+  "settings": {
+    "appearanceSetting": {
+      "isLeftRight": false,
+      "isIconColor": false,
+      "isDefaultIcon": false,
+      "isSimpleReicon": false,
+      "showFloatingRefreshButton": false,
+      "istabBar": false,
+      "istabBar2": false
+    }
+  },
+  "archives": [],
+  "modules": []
+}

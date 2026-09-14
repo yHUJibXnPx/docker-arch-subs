@@ -1,0 +1,26 @@
+[
+    {
+      "id": 0,
+      "remarks": "test0",
+      "site": "test0",
+      "url": "https://a.txt|https://b.txt|https://c.txt",
+      "update_method": "change_date",
+      "enabled": true
+    },
+    {
+      "id": 1,
+      "remarks": "test1",
+      "site": "test1",
+      "url": "https://d.txt|httpx://a.txt|https://a.txt|https://e.txt",
+      "update_method": "change_date",
+      "enabled": true
+    },
+    {
+      "id": 2,
+      "remarks": "test2",
+      "site": "test2",
+      "url": "https://f.txt|httpx://g.txt|https://b.txt",
+      "update_method": "change_date",
+      "enabled": true
+    }
+  ]

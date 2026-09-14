@@ -1,0 +1,263 @@
+services:
+  sub_store_service:
+    cap_add:
+      - ${CAP_ADD_SUB_STORE_1}
+      - ${CAP_ADD_SUB_STORE_2}
+    #cpus: ${CPUS_SUB_STORE}                           # 最多用 1 个核心（4核机器上够用，不会抢占太多）
+    cpu_shares: ${CPUS_SHARES_SUB_STORE}               # 优先级中等
+    container_name: ${CONTAINER_SUB_STORE}             # 容器名称，来自 .env
+    deploy:                                               # 推荐写法
+      resources:
+        limits:
+          cpus: ${CPUS_SUB_STORE}
+          memory: ${MEM_LIMIT_SUB_STORE}               # 转码高峰给足空间
+        reservations:                                     # 可选：保证最低资源
+          cpus: ${CPUS_MIN_SUB_STORE}
+          memory: ${MEM_LIMIT_MIN_SUB_STORE}
+    environment:                                          # 环境变量，来自 .env
+      - SUB_STORE_FRONTEND_BACKEND_PATH=${SUB_STORE_FRONTEND_BACKEND_PATH}
+      - TZ=${TIMEZONE}
+      - HTTP_PROXY=${PROXY_HTTP}
+      - HTTPS_PROXY=${PROXY_HTTPS}
+      - ALL_PROXY=${PROXY_ALL}
+      - NO_PROXY=${PROXY_NO}
+      - http_proxy=${PROXY_HTTP}
+      - https_proxy=${PROXY_HTTPS}
+      - all_proxy=${PROXY_ALL}
+      - no_proxy=${PROXY_NO}
+    image: ${IMAGE_SUB_STORE}                          # 镜像名称，来自 .env
+    init: ${INIT_SUB_STORE}                            # 解决杀不死的关键
+    logging:                                              # 日志配置，来自 .env
+      driver: ${LOGGING_DRIVER}
+      options:
+        max-size: ${LOG_MAX_SIZE}
+    #mem_limit: ${MEM_LIMIT_SUB_STORE}                  # 硬限制 512MB（当前用量很低，够日常管理用）
+    memswap_limit: ${MEMSWAP_LIMIT_SUB_STORE}          # 禁止额外 swap（保护闪存）
+    mem_swappiness: ${MEM_SWAPPINESS_SUB_STORE}        # 全局建议配合这个（已在其他地方有
+    networks:
+      - network
+    platform: ${PLATFORM}                                 # 平台架构，来自 .env
+    ports:                                                # 端口映射，来自 .env
+      - ${PORT_SUB_STORE_3001}
+    privileged: ${PRIVILEGED_SUB_STORE}                # 特权模式，来自 .env
+    restart: ${RESTART_POLICY_SUB_STORE}               # 重启策略，来自 .env
+    security_opt:
+      - ${SECURITY_OPT_SUB_STORE_1}
+    stop_signal: ${STOP_SIGNAL_SUB_STORE}              # 用信号强杀 (避开 docker-init 路径问题)
+    stop_grace_period: ${STOP_GRACE_PERIOD_SUB_STORE}  # 缩短强杀等待时间
+    tty: ${TTY}                                           # 终端模拟，来自 .env
+    volumes:                                              # sub-store 挂载路径，来自 .env
+      - ${CACHE_SUB_STORE}
+      - ${TIMEZONE_VOLUME}
+  subconverter_service:                                   # 节点转换后端
+    cap_add:
+      - ${CAP_ADD_SUBCONVERTER_1}
+      - ${CAP_ADD_SUBCONVERTER_2}
+    #cpus: ${CPUS_SUBCONVERTER}                            # 最多用 1 个核心（4核机器上够用，不会抢占太多）
+    cpu_shares: ${CPUS_SHARES_SUBCONVERTER}               # 优先级中等
+    container_name: ${CONTAINER_SUBCONVERTER}             # 容器名称，来自 .env
+    deploy:                                               # 推荐写法
+      resources:
+        limits:
+          cpus: ${CPUS_SUBCONVERTER}
+          memory: ${MEM_LIMIT_SUBCONVERTER}               # 转码高峰给足空间
+        reservations:                                     # 可选：保证最低资源
+          cpus: ${CPUS_MIN_SUBCONVERTER}
+          memory: ${MEM_LIMIT_MIN_SUBCONVERTER}
+    environment:                                          # 环境变量，来自 .env
+      - TZ=${TIMEZONE}
+      - HTTP_PROXY=${PROXY_HTTP}
+      - HTTPS_PROXY=${PROXY_HTTPS}
+      - ALL_PROXY=${PROXY_ALL}
+      - NO_PROXY=${PROXY_NO}
+      - http_proxy=${PROXY_HTTP}
+      - https_proxy=${PROXY_HTTPS}
+      - all_proxy=${PROXY_ALL}
+      - no_proxy=${PROXY_NO}
+    image: ${IMAGE_SUBCONVERTER}                          # 镜像名称，来自 .env
+    init: ${INIT_SUBCONVERTER}                            # 解决杀不死的关键
+    logging:                                              # 日志配置，来自 .env
+      driver: ${LOGGING_DRIVER}
+      options:
+        max-size: ${LOG_MAX_SIZE}
+    #mem_limit: ${MEM_LIMIT_SUBCONVERTER}                  # 硬限制 512MB（当前用量很低，够日常管理用）
+    memswap_limit: ${MEMSWAP_LIMIT_SUBCONVERTER}          # 禁止额外 swap（保护闪存）
+    mem_swappiness: ${MEM_SWAPPINESS_SUBCONVERTER}        # 全局建议配合这个（已在其他地方有
+    networks:
+      - network
+    platform: ${PLATFORM}                                 # 平台架构，来自 .env
+    ports:                                                # 端口映射，来自 .env
+      - ${PORT_SUBCONVERTER_25500}
+    privileged: ${PRIVILEGED_SUBCONVERTER}                # 特权模式，来自 .env
+    restart: ${RESTART_POLICY_SUBCONVERTER}               # 重启策略，来自 .env
+    security_opt:
+      - ${SECURITY_OPT_SUBCONVERTER_1}
+    stop_signal: ${STOP_SIGNAL_SUBCONVERTER}              # 用信号强杀 (避开 docker-init 路径问题)
+    stop_grace_period: ${STOP_GRACE_PERIOD_SUBCONVERTER}  # 缩短强杀等待时间
+    tty: ${TTY}                                           # 终端模拟，来自 .env
+    volumes:                                              # subconverter 挂载路径，来自 .env
+      - ${CACHE_SUBCONVERTER}
+      - ${TIMEZONE_VOLUME}
+  subweb_service:                                         # 节点转换前端
+    cap_add:
+      - ${CAP_ADD_SUBWEB_1}
+      - ${CAP_ADD_SUBWEB_2}
+    #cpus: ${CPUS_SUBWEB}                                  # 最多用 1 个核心（4核机器上够用，不会抢占太多）
+    cpu_shares: ${CPUS_SHARES_SUBWEB}                     # 优先级中等
+    container_name: ${CONTAINER_SUBWEB}                   # 容器名称，来自 .env
+    deploy:                                               # 推荐写法
+      resources:
+        limits:
+          cpus: ${CPUS_SUBWEB}
+          memory: ${MEM_LIMIT_SUBWEB}                     # 转码高峰给足空间
+        reservations:                                     # 可选：保证最低资源
+          cpus: ${CPUS_MIN_SUBWEB}
+          memory: ${MEM_LIMIT_MIN_SUBWEB}
+    environment:                                          # 环境变量，来自 .env
+      - TZ=${TIMEZONE}
+      - HTTP_PROXY=${PROXY_HTTP}
+      - HTTPS_PROXY=${PROXY_HTTPS}
+      - ALL_PROXY=${PROXY_ALL}
+      - NO_PROXY=${PROXY_NO}
+      - http_proxy=${PROXY_HTTP}
+      - https_proxy=${PROXY_HTTPS}
+      - all_proxy=${PROXY_ALL}
+      - no_proxy=${PROXY_NO}
+    image: ${IMAGE_SUBWEB}                                # 镜像名称，来自 .env
+    init: ${INIT_SUBWEB}                                  # 解决杀不死的关键
+    logging:                                              # 日志配置，来自 .env
+      driver: ${LOGGING_DRIVER}
+      options:
+        max-size: ${LOG_MAX_SIZE}
+    #mem_limit: ${MEM_LIMIT_SUBWEB}                        # 硬限制 512MB（当前用量很低，够日常管理用）
+    memswap_limit: ${MEMSWAP_LIMIT_SUBWEB}                # 禁止额外 swap（保护闪存）
+    mem_swappiness: ${MEM_SWAPPINESS_SUBWEB}              # 全局建议配合这个（已在其他地方有
+    networks:
+      - network
+    platform: ${PLATFORM}                                 # 平台架构，来自 .env
+    ports:                                                # 端口映射，来自 .env
+      - ${PORT_SUBWEB_80}
+    privileged: ${PRIVILEGED_SUBWEB}                      # 特权模式，来自 .env
+    restart: ${RESTART_POLICY_SUBWEB}                     # 重启策略，来自 .env
+    security_opt:
+      - ${SECURITY_OPT_SUBWEB_1}
+    stop_signal: ${STOP_SIGNAL_SUBWEB}                    # 用信号强杀 (避开 docker-init 路径问题)
+    stop_grace_period: ${STOP_GRACE_PERIOD_SUBWEB}        # 缩短强杀等待时间
+    tty: ${TTY}                                           # 终端模拟，来自 .env
+    volumes:
+      - ${TIMEZONE_VOLUME}
+  cfnat_service:                                          # 优选ip
+    cap_add:
+      - ${CAP_ADD_CFNAT_1}
+      - ${CAP_ADD_CFNAT_2}
+    #cpus: ${CPUS_CFNAT}                                   # 最多用 1 个核心（4核机器上够用，不会抢占太多）
+    cpu_shares: ${CPUS_SHARES_CFNAT}                      # 优先级中等
+    container_name: ${CONTAINER_CFNAT}                    # 容器名称，来自 .env
+    deploy:                                               # 推荐写法
+      resources:
+        limits:
+          cpus: ${CPUS_CFNAT}
+          memory: ${MEM_LIMIT_CFNAT}                      # 转码高峰给足空间
+        reservations:                                     # 可选：保证最低资源
+          cpus: ${CPUS_MIN_CFNAT}
+          memory: ${MEM_LIMIT_MIN_CFNAT}
+    environment:                                          # 环境变量，来自 .env
+      - TZ=${TIMEZONE}
+      - colo=${COLO_CFNAT}
+      - delay=${DELAY_CFNAT}
+      - ips=${IPS_CFNAT}
+      - port=${PORT_CFNAT_443}
+      - tls=${TLS_CFNAT}
+      - random=${RANDOM_CFNAT}
+      - ipnum=${IPNUM_CFNAT}
+      - num=${NUM_CFNAT}
+      - task=${TASK_CFNAT}
+      - code=${CODE_CFNAT}
+      - domain=${DOMAIN_CFNAT}
+      #- HTTP_PROXY=${PROXY_HTTP}
+      #- HTTPS_PROXY=${PROXY_HTTPS}
+      #- ALL_PROXY=${PROXY_ALL}
+      #- NO_PROXY=${PROXY_NO}
+      #- http_proxy=${PROXY_HTTP}
+      #- https_proxy=${PROXY_HTTPS}
+      #- all_proxy=${PROXY_ALL}
+      #- no_proxy=${PROXY_NO}
+    image: ${IMAGE_CFNAT}                                 # 镜像名称，来自 .env
+    init: ${INIT_CFNAT}                                   # 解决杀不死的关键
+    logging:                                              # 日志配置，来自 .env
+      driver: ${LOGGING_DRIVER}
+      options:
+        max-size: ${LOG_MAX_SIZE}
+    #mem_limit: ${MEM_LIMIT_CFNAT}                         # 硬限制 512MB（当前用量很低，够日常管理用）
+    memswap_limit: ${MEMSWAP_LIMIT_CFNAT}                 # 禁止额外 swap（保护闪存）
+    mem_swappiness: ${MEM_SWAPPINESS_CFNAT}               # 全局建议配合这个（已在其他地方有
+    networks:
+      - network
+    platform: ${PLATFORM}                                 # 平台架构，来自 .env
+    ports:                                                # 端口映射，来自 .env
+      - ${PORT_CFNAT_1234}
+    privileged: ${PRIVILEGED_CFNAT}                       # 特权模式，来自 .env
+    restart: ${RESTART_POLICY_CFNAT}                      # 重启策略，来自 .env
+    security_opt:
+      - ${SECURITY_OPT_CFNAT_1}
+    stop_signal: ${STOP_SIGNAL_CFNAT}                     # 用信号强杀 (避开 docker-init 路径问题)
+    stop_grace_period: ${STOP_GRACE_PERIOD_CFNAT}         # 缩短强杀等待时间
+    tty: ${TTY}                                           # 终端模拟，来自 .env
+    #volumes:
+      #- ${TIMEZONE_VOLUME}
+  subs_check_service:                                     # 节点测速
+    cap_add:
+      - ${CAP_ADD_SUBS_CHECK_1}
+      - ${CAP_ADD_SUBS_CHECK_2}
+    #cpus: ${CPUS_SUBS_CHECK}                              # 最多用 1 个核心（4核机器上够用，不会抢占太多）
+    cpu_shares: ${CPUS_SHARES_SUBS_CHECK}                 # 优先级中等
+    container_name: ${CONTAINER_SUBS_CHECK}               # 容器名称，来自 .env
+    deploy:                                               # 推荐写法
+      resources:
+        limits:
+          cpus: ${CPUS_SUBS_CHECK}
+          memory: ${MEM_LIMIT_SUBS_CHECK}                 # 转码高峰给足空间
+        reservations:                                     # 可选：保证最低资源
+          cpus: ${CPUS_MIN_SUBS_CHECK}
+          memory: ${MEM_LIMIT_MIN_SUBS_CHECK}
+    environment:                                          # 环境变量，来自 .env
+      - TZ=${TIMEZONE}
+      - NODE_OPTIONS=${NODE_OPTIONS_SUBS_CHECK}           # 强制 Node.js 超过 128MB 时触发深度垃圾回收
+      #- HTTP_PROXY=${PROXY_HTTP}
+      #- HTTPS_PROXY=${PROXY_HTTPS}
+      #- ALL_PROXY=${PROXY_ALL}
+      #- NO_PROXY=${PROXY_NO}
+      #- http_proxy=${PROXY_HTTP}
+      #- https_proxy=${PROXY_HTTPS}
+      #- all_proxy=${PROXY_ALL}
+      #- no_proxy=${PROXY_NO}
+    image: ${IMAGE_SUBS_CHECK}                            # 镜像名称，来自 .env
+    init: ${INIT_SUBS_CHECK}                              # 解决杀不死的关键
+    logging:                                              # 日志配置，来自 .env
+      driver: ${LOGGING_DRIVER}
+      options:
+        max-size: ${LOG_MAX_SIZE}
+    #mem_limit: ${MEM_LIMIT_SUBS_CHECK}                    # 硬限制 512MB（当前用量很低，够日常管理用）
+    memswap_limit: ${MEMSWAP_LIMIT_SUBS_CHECK}            # 禁止额外 swap（保护闪存）
+    mem_swappiness: ${MEM_SWAPPINESS_SUBS_CHECK}          # 全局建议配合这个（已在其他地方有
+    networks:
+      - network
+    platform: ${PLATFORM}                                 # 平台架构，来自 .env
+    ports:                                                # 端口映射，来自 .env
+      - ${PORT_SUBS_CHECK_8199}
+      - ${PORT_SUBS_CHECK_8299}
+    privileged: ${PRIVILEGED_SUBS_CHECK}                  # 特权模式，来自 .env
+    restart: ${RESTART_POLICY_SUBS_CHECK}                 # 重启策略，来自 .env
+    security_opt:
+      - ${SECURITY_OPT_SUBS_CHECK_1}
+    stop_signal: ${STOP_SIGNAL_SUBS_CHECK}                # 用信号强杀 (避开 docker-init 路径问题)
+    stop_grace_period: ${STOP_GRACE_PERIOD_SUBS_CHECK}    # 缩短强杀等待时间
+    tty: ${TTY}                                           # 终端模拟，来自 .env
+    volumes:                                              # 挂载路径，来自 .env
+      - ${SUBS_CHECK_CONFIG}
+      - ${SUBS_CHECK_OUTPUT}
+      - ${TIMEZONE_VOLUME}
+
+networks:
+  network:
+    driver: ${NETWORK_TYPE}                               # 网络配置，来自 .env

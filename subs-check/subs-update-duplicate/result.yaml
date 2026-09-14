@@ -1,0 +1,24 @@
+other1:
+  - '21'
+  - '121'
+other2:
+  - '21'
+  - '121'
+  - '121'
+  - '121'
+other3:
+  - '121'
+  - '121'
+  - '121'
+sub-urls:
+  - "https://a.txt"
+  - "https://b.txt"
+  - "https://c.txt"
+  - "https://d.txt"
+  - "httpx://a.txt"
+  - "https://e.txt"
+  - "https://f.txt"
+  - "httpx://g.txt"
+other4:
+  - '121'
+  - '121'
