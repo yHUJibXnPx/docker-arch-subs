@@ -23,7 +23,7 @@ CHARTS_CONFIG = [
         "output": "star_history_self.png",
         "title": f"Current Repo Star History",
         "repos": [
-            "docker-arch-s-tip"                  # 单个项目 (或当前项目)
+            "docker-arch-subs"                   # 单个项目 (或当前项目)
         ]
     },
     {
