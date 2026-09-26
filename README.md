@@ -6,6 +6,8 @@ docker multi-arch 本项目通过 Docker Compose 组合了多架构的镜像，�
 # 说明记录，防止忘记，你可能需要亿点点想象力
 目前观察发现，这个结构很稳定，也比较贴近于目前流行的节点处理工具，当然我也折磨了很久，唉，人生就那点时间，真是浪费生命
 
+![1](images/1.png)
+
 ![Watchers](https://img.shields.io/github/watchers/yHUJibXnPx/docker-arch-subs) ![Stars](https://img.shields.io/github/stars/yHUJibXnPx/docker-arch-subs) ![Forks](https://img.shields.io/github/forks/yHUJibXnPx/docker-arch-subs) ![Vistors](https://visitor-badge.laobi.icu/badge?page_id=yHUJibXnPx.docker-arch-subs) ![LICENSE](https://img.shields.io/badge/license-MIT-green.svg)
 <!-- <a href="https://star-history.com/#yHUJibXnPx/docker-arch-subs&Date">
   <picture>
