@@ -89,6 +89,7 @@ docker multi-arch 本项目通过 Docker Compose 组合了多架构的镜像，�
 [github MetaCubeX/subconverter](https://github.com/MetaCubeX/subconverter)  
 [github tindy2013/subconverter](https://github.com/tindy2013/subconverter)  
 [github youshandefeiyang/sub-web-modify](https://github.com/youshandefeiyang/sub-web-modify)  
+[github.com sub-store-org/Sub-Store](https://github.com/sub-store-org/Sub-Store)  
 [hub.docker.com asdlokj1qpi23/subconverter](https://hub.docker.com/r/asdlokj1qpi23/subconverter)  
 [hub.docker.com stilleshan/subconverter](https://hub.docker.com/r/stilleshan/subconverter)  
 [hub.docker.com tindy2013/subconverter](https://hub.docker.com/r/tindy2013/subconverter)  

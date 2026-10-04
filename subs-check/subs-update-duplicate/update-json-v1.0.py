@@ -340,9 +340,11 @@ class Update:
             # 模式2: 纯月份 (例如: 9cl, 9v2, 8CLASH, 8V2, 7JD, 7jd, 4V2ray)
             patterns_month_only = [
                 f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{month_int}cl',
+                f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{month_int}CL',
                 f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{month_int}v2',
                 f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{month_int}clash',
                 f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{month_int}V2ray',
+                f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{month_int}v2ray',
                 f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{month_int}JD',
                 f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{month_int}jd'
             ]
@@ -368,9 +370,11 @@ class Update:
                 
                 new_url_patterns_fallback = [
                     f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{last_month_int}cl',
+                    f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{last_month_int}CL',
                     f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{last_month_int}v2',
                     f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{last_month_int}clash',
-                    f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{last_month_int}V2ray'
+                    f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{last_month_int}V2ray',
+                    f'https://github.com/ggborr/FREEE-VPN/raw/refs/heads/main/{last_month_int}v2ray'
                 ]
                 valid_urls_fallback = []
                 for url in new_url_patterns_fallback:
